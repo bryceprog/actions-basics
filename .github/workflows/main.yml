@@ -4,12 +4,21 @@ on:
   push:
     branches:
       - main
+  workflow_dispatch:
 
 jobs:
   hello:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
-      - name: run echo
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Run hello world
         run: echo "Hello, world!"
+
+      - name: Show current date
+        run: date
+
+      - name: List repository files
+        run: ls -la
